@@ -8,7 +8,7 @@ router.get("/todos", function(req, res) {
 });
 
 router.post("/parent-verified", function(req, res) {
-  res.json(req.body);
+  res.json(req);
 });
 
 module.exports = router;
