@@ -1,14 +1,21 @@
 const express = require('express');
-const todos = require("./todos");
+const fs = require("fs");
 
 const router = express.Router();
 
-router.get("/todos", function(req, res) {
-  res.json(todos);
+router.post("/parent-verified", (req, res) => {
+  res.json(req.body);
+
+  fs.writeFile( "filename.json", JSON.stringify( req.body ), "utf8", () => {
+    console.log("IO performed");
+  });
+
+  delete require.cache[require.resolve('./filename.json')]
 });
 
-router.post("/parent-verified", function(req, res) {
-  res.json(req.body);
+router.get("/parents-verified", (req, res) => {
+  let myJson = require("./filename.json");
+  res.json(myJson);
 });
 
 module.exports = router;

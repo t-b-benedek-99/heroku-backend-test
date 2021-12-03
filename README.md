@@ -1,6 +1,6 @@
-# A Simple Nodejs API
+# BOOKR Klasszikusok Backend Nodejs API
 
-## Running the Application
+## Running this API Application
 
 1. Run `npm install`
 2. Run `node server`
